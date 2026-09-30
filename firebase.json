@@ -1,0 +1,24 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/compare",
+        "run": { "serviceId": "reglamentos-app", "region": "europe-west1" }
+      },
+      {
+        "source": "/ask",
+        "run": { "serviceId": "reglamentos-app", "region": "europe-west1" }
+      },
+      {
+        "source": "/static/**",
+        "run": { "serviceId": "reglamentos-app", "region": "europe-west1" }
+      },
+      {
+        "source": "**",
+        "run": { "serviceId": "reglamentos-app", "region": "europe-west1" }
+      }
+    ]
+  }
+}

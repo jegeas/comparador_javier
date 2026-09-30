@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparador de Reglamentos del Agua</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">💧</div>
+      <div>
+        <h1>Comparador de Reglamentos del Agua</h1>
+        <p class="subtitle">Análisis comparativo con inteligencia artificial · Gemini</p>
+        <p class="greeting">👋 HOLA JAVIER. ESTE ES TU COMPARADOR PERSONALIZADO</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Preguntas ──────────────────────────────────────────────────────── -->
+    <section class="card" id="section-ask">
+      <h2>❓ Haz una Pregunta</h2>
+      <p class="hint">Escribe cualquier duda y obtendrás la respuesta según los cuatro reglamentos: <strong>Alcañiz (nuevo y viejo)</strong>, <strong>Córdoba</strong> y <strong>Sagunto</strong>.</p>
+      <div class="ask-form">
+        <textarea
+          id="pregunta-input"
+          rows="3"
+          placeholder="Ej: ¿Cuáles son los plazos para solicitar una nueva conexión? ¿Qué infracciones se consideran graves?"
+        ></textarea>
+        <button class="btn btn-primary" onclick="runAsk()">
+          <span class="btn-icon">🔍</span> Consultar
+        </button>
+      </div>
+
+      <div id="ask-loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span>Consultando los cuatro reglamentos…</span>
+      </div>
+      <div id="ask-error" class="error-box hidden"></div>
+      <div id="out-of-scope-msg" class="out-of-scope hidden">
+        ⚠️ La información solicitada está fuera del ámbito de los reglamentos
+      </div>
+
+      <!-- Respuesta actual -->
+      <div id="current-answer" class="hidden"></div>
+
+      <!-- Historial de consultas anteriores -->
+      <div id="history-panel" class="history-panel hidden">
+        <div class="history-header">
+          <span>📋 Consultas anteriores</span>
+          <button class="btn btn-clear" onclick="clearHistory()">🗑️ Limpiar historial</button>
+        </div>
+        <div id="ask-history"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by <strong>Google Gemini</strong> · Los PDFs se procesan localmente en tu servidor.</p>
+  </footer>
+
+  <!-- Botón flotante para descargar enmiendas -->
+  <div id="download-fab" class="download-fab hidden">
+    <button class="btn-fab" onclick="downloadAmendments()">
+      📥 Descargar enmiendas
+      <span id="fab-count" class="fab-count">0</span>
+    </button>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
